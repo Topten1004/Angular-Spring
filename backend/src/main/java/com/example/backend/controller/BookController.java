@@ -44,7 +44,7 @@ public class BookController {
 
     @RequestMapping(value="/deletebook", method = RequestMethod.DELETE)
     @ResponseBody
-    public int deleteBook(@RequestParam("studentId") int bookId)
+    public int deleteBook(@RequestParam("bookId") int bookId)
     {
         return bookRepository.deleteById(bookId);
     }
