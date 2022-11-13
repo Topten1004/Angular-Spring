@@ -1,0 +1,33 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"
+        [ngStyle]="{ 'background-image': 'url(' + book?.posterImgPath + ')'}"></div>
+    <mat-card-title>{{ book?.title }}</mat-card-title>
+    <mat-card-subtitle>{{ book?.author }}</mat-card-subtitle>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item (click)="onBookDetailNavigate(book)">Edit</button>
+      <button mat-menu-item (click)="onClickRemoveBook(book.id)">Remove</button>
+    </mat-menu>
+  </mat-card-header>
+
+  <img mat-card-image [src]="book?.posterImgPath" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{ book?.description }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-button>COMMENT</button>
+
+    <button
+      mat-icon-button
+      [color]="book?.favorite ? 'warn' : null"
+      (click)="onChangeFavoriteState()">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
