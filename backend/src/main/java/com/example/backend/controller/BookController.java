@@ -24,7 +24,8 @@ public class BookController {
 
     @RequestMapping(value = "/books", method = RequestMethod.POST)
     @ResponseBody
-    public Book addBook(Book book) {
+    public Book addBook(@RequestBody Book book) {
+        System.out.print(book);
         return bookRepository.save(book);
     }
 

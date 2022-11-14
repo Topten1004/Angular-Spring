@@ -21,7 +21,8 @@ export class BookService {
     return this.http.get<Player>(`${environment.api}/findbook?bookId=${id}`);
   }
 
-  create(book: Omit<Player, PlayerId>): Observable<Player> {
+  create(book: Player): Observable<Player> {
+    console.log("create player", book);
     return this.http.post<Player>(`${environment.api}/books`, book);
   }
 
